@@ -13,7 +13,17 @@ class Users extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('firstname',255);
+            $table->string('lastname',255);
+            $table->integer('rut',9);
+            $table->string('email',255);
+            $table->string('phone',30);
+            $table->rememberToken();
+            $table->timestamps();
+            $table->softDeletes();
+        });
     }
 
     /**
